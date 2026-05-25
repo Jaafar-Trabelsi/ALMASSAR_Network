@@ -1,0 +1,25 @@
+
+[admin@MikroTik] > /export
+# 2026-04-23 19:49:17 by RouterOS 7.20.8
+# system id = ozNxHFaixxD
+#
+/interface ethernet
+set [ find default-name=ether1 ] disable-running-check=no
+set [ find default-name=ether2 ] disable-running-check=no
+set [ find default-name=ether3 ] disable-running-check=no
+set [ find default-name=ether4 ] disable-running-check=no
+set [ find default-name=ether5 ] disable-running-check=no
+set [ find default-name=ether6 ] disable-running-check=no
+set [ find default-name=ether7 ] disable-running-check=no
+set [ find default-name=ether8 ] disable-running-check=no
+/port
+set 0 name=serial0
+/ip address
+add address=172.17.6.1/24 interface=ether2 network=172.17.6.0
+/ip dhcp-client
+add interface=ether1
+/ip dhcp-relay
+add dhcp-server=192.168.42.48 disabled=no interface=ether2 local-address=172.17.6.1 name=relay1
+/ip firewall nat
+add action=masquerade chain=srcnat comment="Enable Internet Access for ALMASSAR"
+[admin@MikroTik] >

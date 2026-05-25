@@ -1,0 +1,6 @@
+                                     
+rsa_cert_file=/etc/ssl/certs/almassar.crt
+rsa_private_key_file=/etc/ssl/private/almassar.key
+ssl_enable=YES
+
+

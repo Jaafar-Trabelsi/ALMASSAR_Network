@@ -1,0 +1,29 @@
+==========================================================
+ALMASSAR INFRASTRUCTURE - NETWORK VERIFICATION COMMANDS
+==========================================================
+
+1. DNS & INTERNAL ROUTING TEST
+Description: Resolving the enterprise domain and testing connectivity to the central server.
+Command:
+ping www.almassar.uir.ma
+
+2. FIREWALL ISOLATION (ZERO TRUST) TEST
+Description: Verifying that the Purchases department cannot reach the HR department.
+Command:
+ping 172.17.6.50
+
+3. NAT & INTERNET ACCESS TEST
+Description: Verifying that internal private IPs can reach the public internet.
+Command:
+ping 8.8.8.8
+
+4. HTTPS SERVICE VERIFICATION
+Description: Testing the secure web server certificate and TLS handshake.
+Command:
+echo | openssl s_client -connect www.almassar.uir.ma:443 -brief
+
+5. FTPS SERVICE CONFIGURATION TEST
+Description: Verifying the vsftpd secure file transfer parameters.
+Command:
+sudo vsftpd /etc/vsftpd.conf -olisten=NO
+==========================================================
